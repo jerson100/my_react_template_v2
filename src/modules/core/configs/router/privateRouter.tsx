@@ -4,6 +4,7 @@ import { RouteObject } from "react-router";
 
 import profileRouter from "@profile/routers";
 import MainContainer from "../../components/common/MainContainer";
+import { NotFoundPrivatePage } from "@/core/components/common";
 
 const routes: RouteObject[] = [
   {
@@ -42,10 +43,10 @@ const routes: RouteObject[] = [
       // ...reservationRouter,
       // ...transbankRouter,
       // ...administrationRouter,
-      // {
-      //   path: '*',
-      //   element: <NotFoundPrivatePage />
-      // }
+      {
+        path: "*",
+        element: <NotFoundPrivatePage />,
+      },
     ],
   },
 ];

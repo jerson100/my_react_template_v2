@@ -3,14 +3,15 @@ import SelectorTheme from "../../SelectorTheme";
 import { Avatar } from "@core/components/chakraui/avatar";
 import Heading from "@core/components/chakraui/text/heading";
 import { useAtomValue } from "jotai";
-import { selectedPaletteAtom } from "@/core/states";
+import { HeaderTitleAtom, selectedPaletteAtom } from "@/core/states";
 
 const MainHeader = () => {
   const selectedPalette = useAtomValue(selectedPaletteAtom);
+  const mainTitle = useAtomValue(HeaderTitleAtom);
   return (
     <Box
       as="header"
-      h="3rem"
+      h="3.5rem"
       position={"sticky"}
       top={0}
       display={"flex"}
@@ -19,9 +20,9 @@ const MainHeader = () => {
       zIndex={1}
       borderBottomWidth={1}
     >
-      <Container>
+      <Container maxW={"full"}>
         <Flex justifyContent={"space-between"}>
-          <Heading as="h1">Iniciativas</Heading>
+          <Heading as="h1">{mainTitle}</Heading>
           <Flex alignItems={"center"} gap={3}>
             <SelectorTheme />
             <Avatar size={"xs"} colorPalette={selectedPalette} />

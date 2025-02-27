@@ -33,7 +33,8 @@ const BodySidebarItem = ({
       <LinkButton
         as={Link}
         colorPalette={isActive ? selectedPalette : "bg"}
-        bg={isActive ? {} : { _dark: "transparent" }}
+        bg={isActive ? {} : { _light: "transparent", _dark: "transparent" }}
+        color={isActive ? "" : "GrayText"}
         _hover={isActive ? {} : hoverBG}
         variant={"subtle"}
         w={"full"}

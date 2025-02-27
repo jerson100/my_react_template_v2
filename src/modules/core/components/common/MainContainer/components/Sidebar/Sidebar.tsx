@@ -10,7 +10,7 @@ const Sidebar = () => {
       borderRightWidth="1px"
       borderStyle={"solid"}
       h={"100vh"}
-      w={"230px"}
+      w={"220px"}
       flexShrink={0}
       bgColor={{ _light: "white" }}
       pos={"sticky"}

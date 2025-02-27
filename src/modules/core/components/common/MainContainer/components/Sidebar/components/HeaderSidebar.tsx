@@ -1,23 +1,16 @@
-import { selectedPaletteAtom } from "@/core/states";
-import { Flex, Heading, Icon } from "@chakra-ui/react";
-import { useAtomValue } from "jotai";
-import { BsRobot } from "react-icons/bs";
+import { PacificoImage } from "@/core/components/common/images";
+import { Flex } from "@chakra-ui/react";
 
 const HeaderSidebar = () => {
   return (
     <Flex
       alignItems={"center"}
-      justifyContent={"center"}
+      justifyContent={"flex-start"}
       gap={3}
-      flexDir={"column"}
-      py={4}
+      px={4}
+      h={"3.5rem"}
     >
-      <Icon size={"2xl"}>
-        <BsRobot />
-      </Icon>
-      <Heading as="span" fontSize={"2xl"} letterSpacing={"widest"}>
-        NTTDATA
-      </Heading>
+      <PacificoImage height={"1.7rem"} />
     </Flex>
   );
 };
