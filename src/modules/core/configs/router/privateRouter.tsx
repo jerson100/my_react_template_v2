@@ -3,6 +3,7 @@
 import { RouteObject } from "react-router";
 
 import profileRouter from "@profile/routers";
+import serviceRouter from "@service/routers";
 import MainContainer from "../../components/common/MainContainer";
 import { NotFoundPrivatePage } from "@/core/components/common";
 
@@ -12,6 +13,7 @@ const routes: RouteObject[] = [
     element: <MainContainer />,
     children: [
       ...profileRouter,
+      ...serviceRouter,
       // {
       //   index: true,
       //   element: <HomePage />

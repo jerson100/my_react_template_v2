@@ -28,6 +28,7 @@
       "@core/*": ["./src/modules/core/*"],
       "@auth/*": ["./src/modules/auth/*"],
       "@profile/*": ["./src/modules/profile/*"],
+      "@service/*": ["./src/modules/service/*"],
     }
   },
   "include": ["src"]

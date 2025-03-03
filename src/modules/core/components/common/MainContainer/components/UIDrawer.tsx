@@ -64,6 +64,13 @@ const DrawerSelector = () => {
             {(item) => (
               <GridItem key={item.value}>
                 <RadioCardItem
+                  cursor={"pointer"}
+                  _hover={{
+                    bg: {
+                      _dark: `${item.value}.900/100`,
+                      _light: `${item.value}.500/30`,
+                    },
+                  }}
                   colorPalette={item.value}
                   label={item.title}
                   value={item.value}

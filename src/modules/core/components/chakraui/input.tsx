@@ -5,7 +5,7 @@ import {
 } from "@chakra-ui/react";
 import { useAtomValue } from "jotai";
 import { selectedPaletteAtom } from "@/core/states";
-import { useHoverBgColorCurrentPalette } from "@/core/hooks";
+import { useCurrentPalette } from "@/core/hooks";
 
 export const Input = forwardRef<HTMLInputElement, ChakraInputProps>(
   (props, ref) => {
@@ -14,15 +14,15 @@ export const Input = forwardRef<HTMLInputElement, ChakraInputProps>(
       withoutHover: {
         bg: { _dark },
       },
-    } = useHoverBgColorCurrentPalette();
+    } = useCurrentPalette();
     return (
       <ChakraInput
         ref={ref}
         colorPalette={selectedPalette}
         variant={"subtle"}
         bgColor={{ _dark: _dark, _light: "white" }}
-        // focusRingColor={'cyan.500'}
-        borderColor={`${selectedPalette}.500`}
+        focusRingColor={`${selectedPalette}.500`}
+        borderColor={`border`}
         color={`${selectedPalette}.500`}
         {...props}
       />

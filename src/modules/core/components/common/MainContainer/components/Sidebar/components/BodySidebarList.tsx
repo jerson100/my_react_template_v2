@@ -1,34 +1,36 @@
 import { FiHome } from "react-icons/fi";
-import BodySidebarItem from "./BodySidebarItem";
-import { VStack } from "@chakra-ui/react";
-import { useLocation } from "react-router";
-import { BsClipboardData } from "react-icons/bs";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { BsClipboardData } from "react-icons/bs";
+import { CiCircleList } from "react-icons/ci";
+import { IoAddSharp } from "react-icons/io5";
+import { MenuSidebar } from "@/core/components/common";
 
 const BodySidebarList = () => {
-  const location = useLocation();
-  console.log(location.pathname);
   return (
-    <VStack as="ul" alignItems={"flex-start"} gap={0}>
-      <BodySidebarItem
-        label="Servicios"
-        icon={<FiHome />}
-        to="/"
-        isActive={location.pathname === "/"}
-      />
-      <BodySidebarItem
-        label="Casos"
-        icon={<BsClipboardData />}
-        to="/cases"
-        isActive={location.pathname === "/cases"}
-      />
-      <BodySidebarItem
-        label="Admistración"
-        icon={<MdOutlineAdminPanelSettings />}
-        to="/admin"
-        isActive={location.pathname === "/admin"}
-      />
-    </VStack>
+    <MenuSidebar.Root>
+      <MenuSidebar.List>
+        <MenuSidebar.Item label="Servicios" to="/services" icon={<FiHome />} />
+        <MenuSidebar.Item label="Casos" icon={<BsClipboardData />}>
+          <MenuSidebar.List>
+            <MenuSidebar.Item
+              label="Bandeja"
+              to="/cases/inbox"
+              icon={<CiCircleList />}
+            />
+            <MenuSidebar.Item
+              label="Crear"
+              to="/cases/create"
+              icon={<IoAddSharp />}
+            />
+          </MenuSidebar.List>
+        </MenuSidebar.Item>
+        <MenuSidebar.Item
+          label="Administración"
+          to="/admin"
+          icon={<MdOutlineAdminPanelSettings />}
+        />
+      </MenuSidebar.List>
+    </MenuSidebar.Root>
   );
 };
 

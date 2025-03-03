@@ -4,29 +4,31 @@ import fonts from "./fonts.theme";
 import fontSizes from "./fontsizes.theme";
 // import components from "./components";
 import globalStyles from "./global.theme";
-import {shadowStyles} from "./shadow-styles";
-import { layerStyles } from "./layer-styles"
+import { shadowStyles } from "./shadow-styles";
+import { layerStyles } from "./layer-styles";
 
 const config = {
-  initialColorMode: "light"
+  initialColorMode: "light",
   // initialColorMode: "system",
   // useSystemColorMode: true
 };
 
 const tokens = defineTokens({
   // shadows: shadowStyles
-  colors: colors,
+  colors: colors.tokens,
   fonts: fonts,
   fontSizes: fontSizes,
   shadows: shadowStyles,
-})
+});
 
-const theme = createSystem(defaultConfig,{
+const theme = createSystem(defaultConfig, {
   theme: {
     layerStyles,
     tokens,
+    semanticTokens: {
+      colors: colors.semanticTokens,
+    },
   },
-  globalCss: globalStyles
 });
 
 export default theme;

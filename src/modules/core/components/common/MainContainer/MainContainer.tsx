@@ -11,7 +11,12 @@ const MainContainer = () => {
         <Sidebar />
         <Flex flexGrow={1} flexDir={"column"}>
           <MainHeader />
-          <Container as="main" flexGrow={1}>
+          <Container
+            as="main"
+            flexGrow={1}
+            py={10}
+            bgColor={{ _dark: "#1b1b1b66" }}
+          >
             <Outlet />
           </Container>
         </Flex>

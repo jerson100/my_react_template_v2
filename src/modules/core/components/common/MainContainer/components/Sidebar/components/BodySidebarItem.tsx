@@ -1,8 +1,7 @@
-import { Button } from "@/core/components/chakraui/button";
 import { LinkButton } from "@/core/components/chakraui/link-button";
-import { useHoverBgColorCurrentPalette } from "@/core/hooks";
+import { useCurrentPalette } from "@/core/hooks";
 import { selectedPaletteAtom } from "@/core/states";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useAtomValue } from "jotai";
 import { Link } from "react-router";
 
@@ -19,7 +18,7 @@ const BodySidebarItem = ({
   icon,
   isActive = false,
 }: BodySidebarItemProps) => {
-  const { hover: hoverBG } = useHoverBgColorCurrentPalette();
+  const { hover: hoverBG } = useCurrentPalette();
   const selectedPalette = useAtomValue(selectedPaletteAtom);
   return (
     <Box

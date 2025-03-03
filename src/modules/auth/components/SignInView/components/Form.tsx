@@ -9,12 +9,14 @@ import { PasswordInput } from "@core/components/chakraui/password-input";
 import { FormProvider } from "react-hook-form";
 import PassSecurityCount from "./PassSecurityCount";
 import { IsCoverFaceAtom, SpreadFingersAtom } from "@auth/states/login-atoms";
-import { useSetAtom } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
+import { selectedPaletteAtom } from "@/core/states";
 
 const Form = () => {
   const { instance, handleSubmit } = useSignIn();
   const setisCoverFaceAtom = useSetAtom(IsCoverFaceAtom);
   const setSpreadFingersAtom = useSetAtom(SpreadFingersAtom);
+  const selectedPalette = useAtomValue(selectedPaletteAtom);
 
   const coverFace = () => {
     setisCoverFaceAtom(true);
@@ -40,6 +42,7 @@ const Form = () => {
                 <Input
                   id="username"
                   type="text"
+                  borderColor={`${selectedPalette}.400`}
                   {...instance.register("username")}
                 />
               </InputGroup>
@@ -63,6 +66,7 @@ const Form = () => {
                       unCoverFace(e);
                       onBlur(e);
                     }}
+                    borderColor={`${selectedPalette}.400`}
                     {...passwordRegister}
                   />
                 </InputGroup>

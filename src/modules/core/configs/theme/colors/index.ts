@@ -1,7 +1,7 @@
 import commonColors from "./common.color";
-import textColors from "./text.color";
+import semanticColors from "./text.color";
 
 export default {
-  ...commonColors,
-  ...textColors,
+  tokens: commonColors,
+  semanticTokens: { ...semanticColors },
 };

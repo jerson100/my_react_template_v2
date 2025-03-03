@@ -6,7 +6,7 @@ import { motion, useAnimation } from "motion/react";
 import { CoverFaceVariants, TwoFingersVariants } from "../libs/face-variants";
 import { interpolate } from "flubber";
 import { selectedPaletteAtom } from "@/core/states";
-import { useHoverBgColorCurrentPalette } from "@/core/hooks";
+import { useCurrentPalette } from "@/core/hooks";
 import { Circle } from "@core/components/chakraui/svg/circle";
 import { Rect } from "@/core/components/chakraui/svg/rect";
 import { Path } from "@/core/components/chakraui/svg/path";
@@ -33,7 +33,7 @@ const Face = () => {
     hover: {
       bg: { _dark: bgHover },
     },
-  } = useHoverBgColorCurrentPalette();
+  } = useCurrentPalette();
 
   useEffect(() => {
     const _interpolar = (initial: string, end: string) => {
@@ -67,13 +67,14 @@ const Face = () => {
   }, [controls, isCoverFace]);
 
   return (
-    <Flex justifyContent={"center"}>
+    <Flex justifyContent={"center"} h={"70px"} pos={"relative"}>
       <Box
-        w="200px"
-        h="200px"
-        pos="relative"
-        mt={-28}
+        pos="absolute"
+        bottom={"123px"}
+        w={"200px"}
+        h={"200px"}
         position={"relative"}
+        // transform={"translateY(-100px)"}
         borderColor={`${selectedPalette}.500`}
         borderWidth={1}
         rounded={"full"}
